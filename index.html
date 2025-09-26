@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemsOS - Sistema Operativo de Diagnóstico de Hardware</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #000000;
+            color: #fffdef;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #000000;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e9531c;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #e9531c;
+            border: 1px solid #e9531c;
+            padding: 8px 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0;
+        }
+
+        .nav-links a {
+            color: #fffdef;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 10px 20px;
+            border: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #e9531c;
+            border: 1px solid #e9531c;
+        }
+
+        .hero {
+            background-color: #000000;
+            color: #fffdef;
+            padding: 120px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid #e9531c;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #e9531c;
+            font-weight: normal;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background-color: transparent;
+            color: #e9531c;
+            padding: 15px 30px;
+            border: 1px solid #e9531c;
+            font-size: 1.1rem;
+            font-weight: normal;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Courier New', monospace;
+        }
+
+        .cta-button:hover {
+            background-color: #e9531c;
+            color: #000000;
+        }
+
+        .features {
+            padding: 80px 0;
+            background-color: #000000;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #e9531c;
+            font-weight: normal;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1px;
+        }
+
+        .feature-card {
+            background-color: #000000;
+            padding: 2rem;
+            border: 1px solid #fffdef;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #e9531c;
+        }
+
+        .feature-card h3 {
+            color: #e9531c;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: normal;
+        }
+
+        .use-cases {
+            background-color: #000000;
+            padding: 80px 0;
+            border-top: 1px solid #e9531c;
+        }
+
+        .use-cases h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #e9531c;
+            font-weight: normal;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1px;
+        }
+
+        .use-case {
+            background-color: #000000;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #fffdef;
+            transition: all 0.3s;
+        }
+
+        .use-case:hover {
+            border-color: #e9531c;
+        }
+
+        .use-case h3 {
+            color: #e9531c;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #fffdef;
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #e9531c;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">MemsOS</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#caracteristicas">Características</a></li>
+                <li><a href="#casos-uso">Casos de Uso</a></li>
+                <li><a href="https://github.com/RustLangES/memsos" target="_blank">GitHub</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>MemsOS</h1>
+            <p>Sistema operativo especializado en diagnóstico completo de hardware. Desde memoria RAM hasta GPU, protege tu infraestructura tecnológica con evaluaciones precisas y confiables.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#caracteristicas" class="cta-button">Descubre Más</a>
+                <a href="https://github.com/RustLangES/memsos" target="_blank" class="cta-button">Ver Código</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="caracteristicas">
+        <div class="container">
+            <h2>Características Principales</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🧠 Diagnóstico de Memoria</h3>
+                    <p>Pruebas exhaustivas de RAM que detectan errores, fallos de integridad y problemas de rendimiento antes de que afecten tu sistema.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎮 Evaluación de GPU</h3>
+                    <p>Análisis completo de tarjetas gráficas, incluyendo stress tests, verificación de VRAM y pruebas de estabilidad térmica.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💾 Análisis de Almacenamiento</h3>
+                    <p>Verificación de discos duros y SSDs, detección de sectores defectuosos y evaluación de velocidad de transferencia.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ Pruebas de CPU</h3>
+                    <p>Benchmarks de procesador, pruebas de estabilidad y verificación de todos los núcleos y threads disponibles.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Reportes Detallados</h3>
+                    <p>Informes completos con métricas, gráficos y recomendaciones para mantenimiento preventivo del hardware.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔒 Prevención de Cambios</h3>
+                    <p>Sistema de monitoreo que detecta modificaciones no autorizadas en componentes de hardware críticos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="use-cases" id="casos-uso">
+        <div class="container">
+            <h2>Casos de Uso</h2>
+            <div class="use-case-grid">
+                <div class="use-case">
+                    <h3>🏢 Instituciones Educativas</h3>
+                    <p>Protege laboratorios de computación y previene cambios no autorizados en equipos estudiantiles.</p>
+                </div>
+                <div class="use-case">
+                    <h3>🏭 Empresas Corporativas</h3>
+                    <p>Mantén la integridad del hardware en estaciones de trabajo y servidores críticos.</p>
+                </div>
+                <div class="use-case">
+                    <h3>🔧 Evaluaciones Técnicas</h3>
+                    <p>Herramienta ideal para técnicos que necesitan diagnosticar problemas de hardware de forma precisa.</p>
+                </div>
+                <div class="use-case">
+                    <h3>🛡️ Centros de Datos</h3>
+                    <p>Monitoreo continuo de infraestructura crítica y detección temprana de fallos de hardware.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">MemsOS</div>
+                <p>&copy; 2024 MemsOS. Sistema operativo de diagnóstico de hardware.</p>
+                <p>Protegiendo tu infraestructura tecnológica</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Efecto de parallax suave en el hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
