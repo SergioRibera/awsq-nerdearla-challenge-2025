@@ -4,7 +4,7 @@ Landing page oficial para MemsOS, un sistema operativo especializado en diagnós
 
 ## 📸 Captura de Pantalla
 
-<!-- Agregar captura de pantalla aquí -->
+<img width="1600" height="900" alt="Captura desde 2025-09-26 16-35-16" src="https://github.com/user-attachments/assets/23b83a45-236d-40eb-b372-d947f3b85b08" />
 
 ## 🚀 Características
 
